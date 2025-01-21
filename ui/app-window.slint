@@ -1,0 +1,31 @@
+import "./fonts/Inter-Italic-VariableFont_opsz,wght.ttf";
+import "./fonts/Inter-VariableFont_opsz,wght.ttf";
+import { Sidebar, IconButtonActive } from "components/sidebar.slint";
+import { ColorSettings } from "settings/colors-settings.slint";
+import { VerticalSeparator } from "components/ui/vertical-separator.slint";
+import { VideoDownload } from "pages/video-download.slint";
+import { PlaylistDownload } from "pages/playlist-download.slint";
+import { About } from "pages/about.slint";
+import { Settings } from "pages/settings.slint";
+
+export component AppWindow inherits Window {
+    width: 1280px;
+    height: 720px;
+    default-font-family: "Inter";
+    default-font-size: 14px;
+    background: ColorSettings.grey-50;
+    HorizontalLayout {
+        alignment: start;
+        Sidebar { }
+
+        VerticalSeparator {
+            size: parent.height;
+        }
+
+        // Render the right page depending on the selected sidebar link.
+		if IconButtonActive.active-index == 0: VideoDownload { }
+        if IconButtonActive.active-index == 1: PlaylistDownload { }
+        if IconButtonActive.active-index == 2: About { }
+        if IconButtonActive.active-index == 3: Settings { }
+    }
+}

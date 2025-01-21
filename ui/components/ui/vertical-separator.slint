@@ -1,0 +1,20 @@
+import { ColorSettings } from "../../settings/colors-settings.slint";
+
+export component VerticalSeparator inherits Path {
+    in property <length> size;
+    width: 1phx;
+    height: size;
+    stroke: ColorSettings.grey-200;
+    stroke-width: 1phx;
+    MoveTo {
+        x: 0;
+        y: 0;
+    }
+
+    LineTo {
+        x: 0;
+        y: size / 1px;
+    }
+
+    Close { }
+}

@@ -1,0 +1,70 @@
+import { Button } from "std-widgets.slint";
+import { ColorSettings } from "../settings/colors-settings.slint";
+import { HorizontalSeparator } from "ui/horizontal-separator.slint";
+
+export global IconButtonActive {
+    in-out property <int> active-index: 0;
+}
+
+component SidebarButton inherits Rectangle {
+    in property <int> index;
+    in property <image> icon-image;
+    in property <length> size;
+    width: size;
+    height: size;
+    border-radius: 3px;
+    Image {
+        source: icon-image;
+        colorize: ColorSettings.grey-600;
+    }
+
+    touch := TouchArea {
+        clicked => {
+            IconButtonActive.active-index = root.index;
+        }
+    }
+
+    states [
+        hover when touch.has-hover: {
+            root.background: ColorSettings.grey-200;
+        }
+        active when IconButtonActive.active-index == root.index: {
+            root.background: ColorSettings.grey-200;
+        }
+    ]
+}
+
+export component Sidebar {
+    width: 48px;
+    VerticalLayout {
+        alignment: space-between;
+        VerticalLayout {
+            alignment: start;
+            padding: 4px;
+            spacing: 4px;
+            SidebarButton {
+                index: 0;
+                size: 40px;
+                icon-image: @image-url("../assets/icons/file-video.svg");
+            }
+
+            SidebarButton {
+                index: 1;
+                size: 40px;
+                icon-image: @image-url("../assets/icons/list-video.svg");
+            }
+
+            SidebarButton {
+                index: 2;
+                size: 40px;
+                icon-image: @image-url("../assets/icons/info.svg");
+            }
+
+            SidebarButton {
+                index: 3;
+                size: 40px;
+                icon-image: @image-url("../assets/icons/settings.svg");
+            }
+        }
+    }
+}
