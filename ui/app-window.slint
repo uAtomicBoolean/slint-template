@@ -1,12 +1,18 @@
 import "./assets/fonts/Inter-Italic-VariableFont_opsz,wght.ttf";
 import "./assets/fonts/Inter-VariableFont_opsz,wght.ttf";
 import { ColorSettings } from "theme.slint";
+import { Backend } from "backend.slint";
 import { Home } from "pages/home.slint";
+
+export { Backend }
 
 export component AppWindow inherits Window {
     title: "Slint template";
     default-font-family: "Inter";
     default-font-size: 14px;
     background: ColorSettings.grey-50;
+    width: 800px;
+    height: 600px;
+
     Home { }
 }

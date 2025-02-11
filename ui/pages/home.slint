@@ -1,5 +1,28 @@
-export component Home {
-    Text {
-        text: "Home";
+import { Backend } from "../backend.slint";
+import { Button, ListView } from "std-widgets.slint";
+
+export component Home inherits Rectangle {
+    HorizontalLayout {
+        alignment: center;
+        VerticalLayout {
+            alignment: start;
+
+            Button {
+                text: "Add path";
+                primary: true;
+
+                clicked => {
+                    Backend.add-file-path();
+                }
+            }
+
+            ListView {
+                width: 100px;
+                height: root.height;
+                for fp in Backend.file_paths: Text {
+                    text: fp;
+                }
+            }
+        }
     }
 }
