@@ -1,26 +1,100 @@
-import { Backend } from "../backend.slint";
-import { Button, ListView } from "std-widgets.slint";
-
+import { Button } from "../widgets/button.slint";
+import { Theme } from "../theme.slint";
 export component Home inherits Rectangle {
-    HorizontalLayout {
+    VerticalLayout {
         alignment: center;
-        VerticalLayout {
-            alignment: start;
+        spacing: 4px;
+        HorizontalLayout {
+            alignment: center;
+            spacing: 4px;
 
             Button {
                 text: "Add path";
-                primary: true;
-
+                variant: Theme.primary;
                 clicked => {
-                    Backend.add-file-path();
+                    debug("clicked");
                 }
             }
 
-            ListView {
-                width: 100px;
-                height: root.height;
-                for fp in Backend.file_paths: Text {
-                    text: fp;
+            Button {
+                text: "Add path";
+                variant: Theme.success;
+                clicked => {
+                    debug("clicked");
+                }
+            }
+
+            Button {
+                text: "Add path";
+                variant: Theme.info;
+                clicked => {
+                    debug("clicked");
+                }
+            }
+
+            Button {
+                text: "Add path";
+                variant: Theme.danger;
+                clicked => {
+                    debug("clicked");
+                }
+            }
+
+            Button {
+                text: "Add path";
+                variant: Theme.warning;
+                clicked => {
+                    debug("clicked");
+                }
+            }
+        }
+
+        HorizontalLayout {
+            alignment: center;
+            spacing: 4px;
+
+            Button {
+                text: "Add path";
+                variant: Theme.primary;
+                outline: true;
+                clicked => {
+                    debug("clicked");
+                }
+            }
+
+            Button {
+                text: "Add path";
+                variant: Theme.success;
+                outline: true;
+                clicked => {
+                    debug("clicked");
+                }
+            }
+
+            Button {
+                text: "Add path";
+                variant: Theme.info;
+                outline: true;
+                clicked => {
+                    debug("clicked");
+                }
+            }
+
+            Button {
+                text: "Add path";
+                variant: Theme.danger;
+                outline: true;
+                clicked => {
+                    debug("clicked");
+                }
+            }
+
+            Button {
+                text: "Add path";
+                variant: Theme.warning;
+                outline: true;
+                clicked => {
+                    debug("clicked");
                 }
             }
         }

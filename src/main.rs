@@ -12,16 +12,6 @@ slint::include_modules!();
 fn main() -> Result<(), Box<dyn Error>> {
     let ui = AppWindow::new()?;
 
-    let backend = ui.global::<Backend>();
-    let file_paths: Rc<VecModel<SharedString>> = Rc::new(backend.get_file_paths().iter().collect());
-    backend.set_file_paths(ModelRc::new(file_paths.clone()));
-
-    backend.on_add_file_path(move || {
-        for k in 1..1000 {
-            file_paths.push(SharedString::from(format!("new path {k}")));
-        }
-    });
-
     ui.run()?;
 
     Ok(())

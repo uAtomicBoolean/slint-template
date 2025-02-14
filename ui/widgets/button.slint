@@ -1,0 +1,42 @@
+import { Theme } from "../theme.slint";
+export component Button inherits Rectangle {
+    in property <string> text <=> textObj.text;
+    in property <color> variant;
+    in property <bool> outline: false;
+    callback clicked <=> touch.clicked;
+    background: !outline ? variant : transparent;
+    border-color: !outline ? Theme.border : variant;
+    border-width: 1px;
+    border-radius: Theme.border-radius-base;
+    HorizontalLayout {
+        padding-top: 6px;
+        padding-bottom: 6px;
+        padding-left: 14px;
+        padding-right: 14px;
+
+        textObj := Text {
+            color: !root.outline ? Theme.white-90 : variant;
+        }
+    }
+
+    touch := TouchArea { }
+
+    states [
+        active when touch.pressed && !outline: {
+            background: variant.darker(0.1);
+        }
+        hover when touch.has-hover && !outline: {
+            background: variant.brighter(0.1);
+        }
+        active-outline when touch.pressed && outline: {
+            background: variant.with-alpha(0.1);
+            border-color: variant.darker(0.1);
+            textObj.color: variant.darker(0.1);
+        }
+        hover-outline when touch.has-hover && outline: {
+            background: variant.with-alpha(0.05);
+            border-color: variant.brighter(0.1);
+            textObj.color: variant.brighter(0.1);
+        }
+    ]
+}
