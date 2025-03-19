@@ -1,0 +1,45 @@
+[package]
+name = "slint-template"
+version = "0.1.0"
+edition = "2024"
+
+[package.metadata.winresource]
+FileDescription = "sint-template"
+FileVersion = "0.0.1-alpha"
+ProductName = "sint-template"
+Comments = "A simple slint template with a release github action."
+OriginalFilename = "sint-template.exe"
+InternalName = "sint-template.exe"
+LegalCopyright = "Copyright uAtomicBoolean © 2025"
+
+[dependencies]
+slint = { version = "^1.10.0", features = [
+	"raw-window-handle-06",
+	"renderer-skia",
+] }
+i-slint-backend-winit = "=1.10.0"
+
+[build-dependencies]
+slint-build = "^1.10.0"
+
+[target.'cfg(windows)'.build-dependencies]
+winresource = "0.1.19"
+
+[profile.dev]
+incremental = true
+
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = "s"
+panic = "abort"
+strip = true
+
+[package.metadata.packager]
+before-packaging-command = "cargo build --release"
+product-name = "slint-template"
+identifier = "com.slint.template"
+resources = ["Cargo.toml", "src", "res/32x32.png", "res/icon.ico"]
+icons = ["res/32x32.png", "res/icon.ico"]
+binaries_dir = "target/release"
+out_dir = "dist/"
