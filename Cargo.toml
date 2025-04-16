@@ -4,12 +4,12 @@ version = "0.1.0"
 edition = "2024"
 
 [package.metadata.winresource]
-FileDescription = "sint-template"
+FileDescription = "slint-template"
 FileVersion = "0.0.1-alpha"
-ProductName = "sint-template"
+ProductName = "slint-template"
 Comments = "A simple slint template with a release github action."
-OriginalFilename = "sint-template.exe"
-InternalName = "sint-template.exe"
+OriginalFilename = "slint-template.exe"
+InternalName = "slint-template.exe"
 LegalCopyright = "Copyright uAtomicBoolean © 2025"
 
 [dependencies]
