@@ -1,5 +1,5 @@
 # slint-template
-A Slint template for Rust that comes with translations, bases for winresources and a github action to bundle the project into installers.  
+A Slint template for Rust that comes with translations, bases for winresources and github actions to bundle the project into installers for linux, macos arm and windows.  
 
 ## Clean after using to create a repo
 - Update all occurences of `slint-template` to your project's name in the following files :
@@ -28,7 +28,5 @@ The UI folder contains some subfolders to organize the project (nothing in set i
 - `app-window.slint` : the main UI file loaded by Rust.
 
 ## Github action
-- The github action will run when a new tag is pushed to github.  
-- This will build the project and bundle it into installers for linux, macos arm and windows using `cargo-packager`.
-- A release will be created with the installers, the standalone executable resulting from the build.
-- The release will have the project's name and the tag as a name.
+All 3 github actions will run when a new tag (ex: 1.0.0) is pushed.  
+They will then create a release with standalone executables and installers for linux, windows and macos arm.  
