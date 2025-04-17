@@ -28,7 +28,7 @@ jobs:
 
       - name: Rename binary
         run: |
-          cp target/release/scriptboard target/release/scriptboard-${{ github.ref_name }}-x86_64-windows
+          cp target/release/scriptboard.exe target/release/scriptboard-${{ github.ref_name }}-x86_64-windows.exe
         shell: bash
       
       - name: Create Release
@@ -36,5 +36,5 @@ jobs:
         with:
           name: scriptboard v${{ github.ref_name }}
           files: |
-            target/release/scriptboard-${{ github.ref_name }}-x86_64-windows
+            target/release/scriptboard-${{ github.ref_name }}-x86_64-windows.exe
             dist/scriptboard*
