@@ -28,5 +28,5 @@ The UI folder contains some subfolders to organize the project (nothing in set i
 - `app-window.slint` : the main UI file loaded by Rust.
 
 ## Github action
-All 3 github actions will run when a new tag (ex: 1.0.0) is pushed.  
-They will then create a release with standalone executables and installers for linux, windows and macos arm.  
+All 4 github actions will run when a new tag (ex: 1.0.0) is pushed.  
+They will then create a release with standalone executables and installers for linux, windows and macos intel/arm.  
