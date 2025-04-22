@@ -13,10 +13,7 @@ InternalName = "slint-template.exe"
 LegalCopyright = "Copyright uAtomicBoolean © 2025"
 
 [dependencies]
-slint = { version = "^1.10.0", features = [
-	"raw-window-handle-06",
-	"renderer-skia",
-] }
+slint = { version = "^1.10.0", features = ["renderer-skia"] }
 
 [build-dependencies]
 slint-build = "^1.10.0"
