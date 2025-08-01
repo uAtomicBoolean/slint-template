@@ -33,5 +33,5 @@ All 4 github actions will run when a new tag (ex: v1.0.0) is pushed.
 They will then create a release with standalone executables and installers for linux, windows and macos intel/arm.  
 
 ### Changelogs
-Changelogs files are stored in the `changelogs` folder. Each changelog must use the following naming convention: `version_number-CHANGELOG.txt`. 
-Exemple: `v1.0.0-CHANGELOG.txt`  
+Changelogs files are stored in the `changelogs` folder. Each changelog must use the following naming convention: `version_number-changelog.txt`. 
+Exemple: `v1.0.0-changelog.txt`  
