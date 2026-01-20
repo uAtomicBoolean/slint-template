@@ -28,7 +28,7 @@ jobs:
 
       - name: Rename binary
         run: |
-          cp target/release/scriptboard.exe target/release/scriptboard-${{ github.ref_name }}-x86_64-windows.exe
+          cp target/release/scriptboard.exe target/release/scriptboard-${{ github.ref_name }}-x86_64-windows-portable.exe
         shell: bash
       
       - name: Create Release
@@ -37,5 +37,5 @@ jobs:
           name: scriptboard v${{ github.ref_name }}
           body_path: changelogs/${{ github.ref_name }}-CHANGELOG.txt
           files: |
-            target/release/scriptboard-${{ github.ref_name }}-x86_64-windows.exe
+            target/release/scriptboard-${{ github.ref_name }}-x86_64-windows-portable.exe
             dist/scriptboard*
