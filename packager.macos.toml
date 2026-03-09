@@ -12,8 +12,8 @@ Legal-copyright = "Copyright uAtomicBoolean © 2026"
 
 
 formats = ["app", "dmg"]
-out_dir = "dist/"
-binaries_dir = "target/release"
+out-dir = "dist/"
+binaries-dir = "target/release"
 resources = ["Cargo.toml", "src", "res/32x32.png"]
 icons = ["res/32x32.png"]
 before-packaging-command = "cargo build --release"
