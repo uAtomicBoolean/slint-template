@@ -4,19 +4,15 @@ version = "0.1.0"
 edition = "2024"
 
 [package.metadata.winresource]
-FileDescription = "slint-template"
-FileVersion = "0.0.1-alpha"
-ProductName = "slint-template"
-Comments = "A simple slint template with a release github action."
 OriginalFilename = "slint-template.exe"
 InternalName = "slint-template.exe"
-LegalCopyright = "Copyright uAtomicBoolean © 2025"
+LegalCopyright = "Copyright uAtomicBoolean © 2026"
 
 [dependencies]
-slint = { version = "^1.10.0", features = ["renderer-skia"] }
+slint = { version = "^1.15.0", features = ["renderer-skia"] }
 
 [build-dependencies]
-slint-build = "^1.10.0"
+slint-build = "^1.15.0"
 
 [target.'cfg(windows)'.build-dependencies]
 winresource = "0.1.19"
@@ -30,12 +26,3 @@ lto = true
 opt-level = "s"
 panic = "abort"
 strip = true
-
-[package.metadata.packager]
-before-packaging-command = "cargo build --release"
-product-name = "slint-template"
-identifier = "com.slint.template"
-resources = ["Cargo.toml", "src", "res/32x32.png", "res/icon.ico"]
-icons = ["res/32x32.png", "res/icon.ico"]
-binaries_dir = "target/release"
-out_dir = "dist/"

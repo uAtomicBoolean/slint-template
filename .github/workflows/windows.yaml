@@ -24,7 +24,7 @@ jobs:
       - name: Package the project
         run: |
           cargo install cargo-packager --locked
-          cargo packager --release
+          cargo packager --release -c packager.windows.toml
 
       - name: Rename binary
         run: |

@@ -1,0 +1,22 @@
+name = "slint-template"
+product-name = "slint-template"
+version = "0.1.0"
+identifier = "com.app.slint-template"
+description = "A small desktop app to manage your job applications."
+category = "Utility"
+homepage = "https://github.com/uAtomicBoolean/slint-template"
+license-file = "LICENSE"
+publisher = "uAtomicBoolean"
+authors = ["uAtomicBoolean"]
+Legal-copyright = "Copyright uAtomicBoolean © 2026"
+
+
+formats = ["deb", "appimage"]
+out_dir = "dist/"
+binaries_dir = "target/release"
+resources = ["Cargo.toml", "src", "res/32x32.png"]
+icons = ["res/32x32.png"]
+before-packaging-command = "cargo build --release"
+
+[linux]
+generate-desktop-entry = true
