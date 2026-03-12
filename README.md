@@ -4,6 +4,7 @@ A Slint template for Rust that comes with translations, bases for winresources a
 ## Clean after using to create a repo
 - Update all occurences of `slint-template` to your project's name in the following files :
   - `Cargo.toml`
+  - All three `packager.*.toml` files.
   - `ui/app-window.slint`
   - all translations filenames
   - `.github/workflows/build.yaml`
