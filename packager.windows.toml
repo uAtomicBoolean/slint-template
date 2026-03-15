@@ -9,6 +9,7 @@ license-file = "LICENSE"
 publisher = "uAtomicBoolean"
 authors = ["uAtomicBoolean"]
 copyright = "Copyright uAtomicBoolean © 2026"
+binaries = [{ path = "slint-template", main = true }]
 
 
 formats = ["nsis", "wix"]
