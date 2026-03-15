@@ -8,7 +8,7 @@ homepage = "https://github.com/uAtomicBoolean/slint-template"
 license-file = "LICENSE"
 publisher = "uAtomicBoolean"
 authors = ["uAtomicBoolean"]
-Legal-copyright = "Copyright uAtomicBoolean © 2026"
+copyright = "Copyright uAtomicBoolean © 2026"
 
 
 formats = ["deb", "appimage"]
