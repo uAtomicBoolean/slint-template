@@ -30,9 +30,5 @@ The UI folder contains some subfolders to organize the project (nothing in set i
 - `app-window.slint` : the main UI file loaded by Rust.
 
 ## Github action
-All 4 github actions will run when a new tag (ex: v1.0.0) is pushed.  
+All 4 github actions will run when a new tag (ex: 1.0.0) is pushed.  
 They will then create a release with standalone executables and installers for linux, windows and macos intel/arm.  
-
-### Changelogs
-Changelogs files are stored in the `changelogs` folder. Each changelog must use the following naming convention: `version_number-changelog.txt`. 
-Exemple: `v1.0.0-changelog.txt`  

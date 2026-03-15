@@ -37,7 +37,6 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           name: slint-template v${{ github.ref_name }}
-          body_path: changelogs/${{ github.ref_name }}-changelog.txt
           files: |
             target/release/slint-template-${{ github.ref_name }}-x86_64-macos-portable
             dist/slint-template*
