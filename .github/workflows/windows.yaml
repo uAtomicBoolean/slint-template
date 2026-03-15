@@ -2,6 +2,7 @@ name: Windows
 run-name: Build project
 
 on:
+  workflow_dispatch:
   push:
     tags:
       - '*.*.*'
@@ -30,12 +31,31 @@ jobs:
         run: |
           cp target/release/slint-template.exe target/release/slint-template-${{ github.ref_name }}-x86_64-windows-portable.exe
         shell: bash
+
+      - name: Extract changelog for current version
+        id: changelog
+        run: |
+          VERSION="${{ github.ref_name }}"
+          CHANGELOG_CONTENT=$(awk -v version="$VERSION" '
+            BEGIN { found = 0; }
+            /^[0-9]+\.[0-9]+\.[0-9]+/ {
+              if (found) exit;
+              if ($0 ~ version) found = 1;
+              next;
+            }
+            found { print; }
+          ' CHANGELOG.md)
+
+          echo "$CHANGELOG_CONTENT" > changelog_temp.txt
+          echo "changelog_content<<EOF" >> $GITHUB_OUTPUT
+          echo "$CHANGELOG_CONTENT" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
       
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
-          name: slint-template v${{ github.ref_name }}
-          body_path: changelogs/${{ github.ref_name }}-changelog.txt
+          name: Slint-template v${{ github.ref_name }}
+          body_path: ${{ steps.changelog.outputs.changelog_content }}
           files: |
             target/release/slint-template-${{ github.ref_name }}-x86_64-windows-portable.exe
             dist/slint-template*
