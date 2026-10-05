@@ -3,13 +3,8 @@ name = "slint-template"
 version = "0.1.0"
 edition = "2024"
 
-[package.metadata.winresource]
-OriginalFilename = "slint-template.exe"
-InternalName = "slint-template.exe"
-LegalCopyright = "Copyright uAtomicBoolean © 2026"
-
 [dependencies]
-slint = { version = "^1.15.0", features = ["renderer-skia"] }
+slint = "^1.15.0"
 
 [build-dependencies]
 slint-build = "^1.15.0"
