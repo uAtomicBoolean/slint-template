@@ -3,8 +3,19 @@ import "assets/fonts/Inter-VariableFont_opsz,wght.ttf";
 import { Button } from "std-widgets.slint";
 
 
+global CounterState {
+    in property <int> count;
+}
+
+
+global CounterIntents {
+    callback increment();
+    callback decrement();
+    callback reset();
+}
+
+
 export component SlintTemplate inherits Window {
-    property <int> counter: 0;
     title: "Slint template";
     default-font-family: "Inter";
     default-font-size: 14px;
@@ -16,7 +27,7 @@ export component SlintTemplate inherits Window {
         cross-axis-alignment: center;
         spacing: 20px;
         Text {
-            text: "\{counter}";
+            text: "\{CounterState.count}";
             font-size: 64px;
         }
 
@@ -25,18 +36,20 @@ export component SlintTemplate inherits Window {
             spacing: 8px;
             Button {
                 text: "-";
-                clicked => { counter -= 1 }
+                clicked => { CounterIntents.decrement() }
             }
 
             Button {
                 text: "Reset";
-                clicked => { counter = 0 }
+                clicked => { CounterIntents.reset() }
             }
 
             Button {
                 text: "+";
-                clicked => { counter += 1 }
+                clicked => { CounterIntents.increment() }
             }
         }
     }
 }
+
+export { CounterState, CounterIntents }
